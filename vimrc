@@ -3,13 +3,14 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-airline'
 Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -55,6 +56,9 @@ set number
 " enable persistent undo file
 set undofile
 
+" make tabs 4 chars wide
+set tabstop=4
+
 " use tabs instead of spaces
 set noexpandtab
 
@@ -76,8 +80,8 @@ let mapleader = ","
 " ,l : toggle list mode
 nnoremap <leader>l :set list!<cr>
 
-" ,W : trim whitespace
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" ,w : trim whitespace
+nnoremap <leader>w :StripWhitespace<cr>
 
 " ,ev : open vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>

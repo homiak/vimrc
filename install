@@ -1,0 +1,10 @@
+#!/bin/bash -x
+#
+# script install vim config to different machines
+
+prgdir=$(cd $(dirname $0); pwd)
+for h in "$@"; do
+	echo "Installing vim config to $h"
+	scp -q $prgdir/vimrc $h:.vimrc
+	rsync -a --delete ~/.vim $h:
+done
