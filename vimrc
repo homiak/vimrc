@@ -1,3 +1,6 @@
+" disable vi compatibility (probably not necessary for neovim)
+set nocompatible
+
 " configure vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -7,17 +10,16 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
+" Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
-
-" disable vi compatibility (probably not necessary for neovim)
-set nocompatible
 
 " disable modelines (security risk)
 set modelines=0
@@ -65,6 +67,9 @@ set noexpandtab
 " define tab and EOL characters for list mode
 set listchars=tab:▸\ ,eol:¬
 
+" allow modified buffers to be hidden
+set hidden
+
 " save on focus lost
 au FocusLost * :wa
 
@@ -89,6 +94,22 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " ,rv : reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<cr>
 
+" ,todo : open todo list
+nnoremap <leader>todo <C-w><C-v><C-l>:e ~/todo.md<cr>
+
+" move line/block up/down
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+
+" next window
+nnoremap <S-n> <C-W><C-W>
+
+" buffer management
+
+" ,b : buffergator
+nnoremap <S-q> :bd<cr>
+nnoremap <S-b> :bnext<cr>
+
 " go config
 
 " use goimports for Go
@@ -97,7 +118,7 @@ let g:go_fmt_command = "goimports"
 " NERDTree config
 
 " show NERDTree on the right
-let g:NERDTreeWinPos = "right"
+" let g:NERDTreeWinPos = "right"
 
 " arrow symbols for directories
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -107,6 +128,17 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" ,nf : toggle nerdtree
-nnoremap <leader>nn :NERDTreeToggle<cr>
+" close vim if nerdtree is the last open buffer
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" ,nf : toggle nerdtree
+nnoremap <S-d> :NERDTree<cr>
+nnoremap <S-f> :NERDTreeToggle<cr>
+
+" airline config
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
