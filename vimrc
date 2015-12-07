@@ -10,12 +10,11 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
-" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
-" Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
+Plugin 'wincent/command-t'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -28,7 +27,7 @@ set modelines=0
 set encoding=utf-8
 
 " keep cursor in the middle of the screen
-set scrolloff=3
+set scrolloff=999
 
 " indent blocks automatically
 set autoindent
@@ -60,6 +59,7 @@ set undofile
 
 " make tabs 4 chars wide
 set tabstop=4
+set shiftwidth=4
 
 " use tabs instead of spaces
 set noexpandtab
@@ -98,22 +98,30 @@ nnoremap <leader>rv :source $MYVIMRC<cr>
 nnoremap <leader>todo <C-w><C-v><C-l>:e ~/todo.md<cr>
 
 " move line/block up/down
-nnoremap <S-j> :m .+1<CR>==
-nnoremap <S-k> :m .-2<CR>==
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
 
 " next window
-nnoremap <S-n> <C-W><C-W>
+nnoremap <leader>w <C-W><C-W>
+
+" toggle line numbers
+nnoremap <leader>N :set number!<cr>
 
 " buffer management
+nnoremap <leader>q :bd<cr>
+nnoremap <leader>n :bnext<cr>
 
-" ,b : buffergator
-nnoremap <S-q> :bd<cr>
-nnoremap <S-b> :bnext<cr>
+" undo
+nnoremap <leader>u :undo<cr>
 
 " go config
 
 " use goimports for Go
 let g:go_fmt_command = "goimports"
+
+" go shortcuts
+nnoremap <leader>gb :GoBuild<cr>
+nnoremap <leader>gt :GoTest<cr>
 
 " NERDTree config
 
@@ -128,12 +136,11 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+nnoremap <leader>d :NERDTreeFind<cr>
+nnoremap <leader>f :NERDTreeToggle<cr>
+
 " close vim if nerdtree is the last open buffer
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" ,nf : toggle nerdtree
-nnoremap <S-d> :NERDTree<cr>
-nnoremap <S-f> :NERDTreeToggle<cr>
 
 " airline config
 
