@@ -56,6 +56,9 @@ set number
 
 " enable persistent undo file
 set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
 
 " make tabs 4 chars wide
 set tabstop=4
