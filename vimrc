@@ -73,6 +73,9 @@ set listchars=tab:▸\ ,eol:¬
 " allow modified buffers to be hidden
 set hidden
 
+" enable mouse support
+set mouse=a
+
 " save on focus lost
 au FocusLost * :wa
 
