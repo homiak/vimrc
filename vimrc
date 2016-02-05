@@ -111,9 +111,6 @@ nnoremap <leader>todo <C-w><C-v><C-l>:e ~/todo.md<cr>
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 
-" next window
-nnoremap <leader>w <C-W><C-W>
-
 " toggle line numbers
 nnoremap <leader>N :set number!<cr>
 
