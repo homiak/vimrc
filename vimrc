@@ -14,6 +14,7 @@ Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
+Plugin 'solarnz/thrift.vim'
 Plugin 'wincent/command-t'
 
 " All of your Plugins must be added before the following line
