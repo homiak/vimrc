@@ -80,6 +80,9 @@ set mouse=a
 " save on focus lost
 au FocusLost * :wa
 
+" yaml indentation
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 " set color scheme
 colorscheme molokai
 
