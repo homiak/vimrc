@@ -117,6 +117,8 @@ nnoremap <leader>N :set number!<cr>
 " buffer management
 nnoremap <leader>q :bd<cr>
 nnoremap <leader>n :bnext<cr>
+nnoremap <leader>m :bprev<cr>
+nnoremap <leader>z :b#<cr>
 
 " undo
 nnoremap <leader>u :undo<cr>
