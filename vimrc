@@ -107,6 +107,8 @@ nnoremap <leader>rv :source $MYVIMRC<cr>
 " ,v : open todo list
 nnoremap <leader>T <C-w><C-v><C-l>:e ~/todo.md<cr>
 
+" ,Q : quit without warning
+nnoremap <leader>Q :qa!<cr>
 
 " move line/block up/down
 nnoremap <C-j> :m .+1<CR>==
