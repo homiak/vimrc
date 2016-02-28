@@ -104,8 +104,9 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " ,rv : reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<cr>
 
-" ,todo : open todo list
-nnoremap <leader>todo <C-w><C-v><C-l>:e ~/todo.md<cr>
+" ,v : open todo list
+nnoremap <leader>T <C-w><C-v><C-l>:e ~/todo.md<cr>
+
 
 " move line/block up/down
 nnoremap <C-j> :m .+1<CR>==
