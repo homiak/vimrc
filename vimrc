@@ -99,7 +99,7 @@ nnoremap <leader>l :set list!<cr>
 nnoremap <leader>w :StripWhitespace<cr>
 
 " ,ev : open vimrc
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
 
 " ,rv : reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<cr>
