@@ -117,8 +117,10 @@ nnoremap <C-k> :m .-2<CR>==
 " toggle line numbers
 nnoremap <leader>N :set number!<cr>
 
+" close current buffer but don't change the layout
+nnoremap <leader>q :bp\|bd #<cr>
+
 " buffer management
-nnoremap <leader>q :bd<cr>
 nnoremap <leader>n :bnext<cr>
 nnoremap <leader>m :bprev<cr>
 
