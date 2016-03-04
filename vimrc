@@ -15,7 +15,6 @@ Plugin 'fatih/vim-go'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'solarnz/thrift.vim'
-Plugin 'wincent/command-t'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -76,6 +75,9 @@ set hidden
 
 " enable mouse support
 set mouse=a
+
+" store vim buffers on system clipboard
+set clipboard=unnamed
 
 " save on focus lost
 au FocusLost * :wa
