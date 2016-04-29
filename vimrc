@@ -82,7 +82,8 @@ set clipboard=unnamed
 " save on focus lost
 au FocusLost * :wa
 
-" yaml indentation
+" indentation settings
+au FileType html setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " set color scheme
