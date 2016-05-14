@@ -137,6 +137,7 @@ let g:go_fmt_command = "goimports"
 
 " go shortcuts
 nnoremap <leader>gb :GoBuild<cr>
+nnoremap <leader>gi :GoInstall<cr>
 nnoremap <leader>gt :GoTest<cr>
 
 " NERDTree config
