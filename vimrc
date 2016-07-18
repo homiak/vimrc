@@ -78,7 +78,7 @@ set hidden
 set mouse=a
 
 " store vim buffers on system clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " save on focus lost
 au FocusLost * :wa
