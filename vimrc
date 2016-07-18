@@ -12,9 +12,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
+Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'morhetz/gruvbox'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'solarnz/thrift.vim'
 
@@ -131,6 +133,14 @@ nnoremap <leader>m :bprev<cr>
 
 " undo
 nnoremap <leader>u :undo<cr>
+
+" markdown config
+
+" disable folding
+let g:vim_markdown_folding_disabled = 1
+
+" auto-indent bullet lists
+let g:vim_markdown_new_list_item_indent = 2
 
 " go config
 
