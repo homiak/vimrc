@@ -36,9 +36,6 @@ set autoindent
 " visual bell instead of dingdong
 set visualbell
 
-" highlight the current line
-set cursorline
-
 " enable auto completion for command options
 set wildmenu
 set wildmode=list:full
@@ -170,3 +167,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" highlight the current line
+set cursorline
+
