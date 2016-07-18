@@ -1,5 +1,5 @@
 " disable vi compatibility (probably not necessary for neovim)
-set nocompatible
+" set nocompatible
 
 " configure vundle
 filetype off
@@ -12,6 +12,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
+Plugin 'morhetz/gruvbox'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'solarnz/thrift.vim'
@@ -43,7 +44,7 @@ set wildmenu
 set wildmode=list:full
 
 " assume a fast tty
-set ttyfast
+" set ttyfast
 
 " show line and column in status bar
 set ruler
@@ -87,7 +88,10 @@ au FileType html setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " set color scheme
+" set background=dark
+" colorscheme gruvbox
 colorscheme molokai
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " enable syntax highlighting
 syntax enable
