@@ -8,6 +8,7 @@ call vundle#begin()
 
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/molokai'
@@ -152,6 +153,9 @@ let g:go_fmt_command = "goimports"
 nnoremap <leader>gb :GoBuild<cr>
 nnoremap <leader>gi :GoInstall<cr>
 nnoremap <leader>gt :GoTest<cr>
+
+" YCM disable top window preview
+set completeopt-=preview
 
 " FZF config
 set rtp+=/usr/local/opt/fzf
