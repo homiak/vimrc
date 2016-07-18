@@ -149,9 +149,17 @@ let g:vim_markdown_new_list_item_indent = 2
 let g:go_fmt_command = "goimports"
 
 " go shortcuts
-nnoremap <leader>gb :GoBuild<cr>
-nnoremap <leader>gi :GoInstall<cr>
-nnoremap <leader>gt :GoTest<cr>
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>i <Plug>(go-install)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>r <Plug>(go-rename)
+au FileType go nmap <leader>? <Plug>(go-info)
+au FileType go nmap <leader>gd <Plug>(go-doc)
+au FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>ds <Plug>(go-def-split)
+au FileType go nmap <leader>dv <Plug>(go-def-vertical)
 
 " YCM disable top window preview
 set completeopt-=preview
