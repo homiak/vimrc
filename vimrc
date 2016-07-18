@@ -14,6 +14,7 @@ Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'plasticboy/vim-markdown'
@@ -152,6 +153,11 @@ nnoremap <leader>gb :GoBuild<cr>
 nnoremap <leader>gi :GoInstall<cr>
 nnoremap <leader>gt :GoTest<cr>
 
+" FZF config
+set rtp+=/usr/local/opt/fzf
+
+nnoremap <leader>, :Files<cr>
+
 " NERDTree config
 
 " show NERDTree on the right
@@ -162,8 +168,8 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 " open with nerdtree if there were no cmd args
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 nnoremap <leader>d :NERDTreeFind<cr>
 nnoremap <leader>f :NERDTreeToggle<cr>
