@@ -6,23 +6,25 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'morhetz/gruvbox'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'solarnz/thrift.vim'
 Plugin 'tpope/vim-dispatch'
-Plugin 'wesQ3/vim-windowswap'
+Plugin 'zchee/deoplete-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -31,8 +33,8 @@ filetype plugin indent on
 " disable modelines (security risk)
 set modelines=0
 
-" default file encoding
-set encoding=utf-8
+" default file encoding (not needed for neovim)
+" set encoding=utf-8
 
 " keep cursor in the middle of the screen
 set scrolloff=999
@@ -50,15 +52,11 @@ set visualbell
 set wildmenu
 set wildmode=list:full
 
-" set text width to 60 chars for reformatting
-" documentation with :gq
-set textwidth=60
-
-" assume a fast tty
+" assume a fast tty (not needed for neovim)
 " set ttyfast
 
 " show line and column in status bar
-set ruler
+" set ruler
 
 " backspace over indent and eol
 set backspace=indent,eol,start
@@ -88,9 +86,6 @@ set hidden
 " enable mouse support
 set mouse=a
 
-" store vim buffers on system clipboard
-" set clipboard=unnamed
-
 " save on focus lost
 au FocusLost * :wa
 
@@ -99,10 +94,10 @@ au FileType html setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " set color scheme
+set termguicolors
 let g:rehash256 = 1
 let g:molokai_original = 1
 colorscheme molokai
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " enable syntax highlighting
 syntax enable
@@ -128,25 +123,12 @@ nnoremap <leader>T <C-w><C-v><C-l>:e ~/todo.md<cr>
 " ,Q : quit without warning
 nnoremap <leader>Q :qa!<cr>
 
-" move line/block up/down
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
-
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-
-vnoremap ∆ :m '>+1<CR>gv=gv
-vnoremap ˚ :m '<-2<CR>gv=gv<Paste>
-
-" map search to ctrl-f
-nnoremap <C-f> <Esc>/
-inoremap <C-f> <Esc><Esc>/
-
 " toggle line numbers
 nnoremap <leader>N :set number!<cr>
 
 " close current buffer but don't change the layout
-nnoremap <leader>q :bp\|bd #<cr>
+" nnoremap <leader>q :bp\|bd #<cr>
+nnoremap <leader>q :bd<cr>
 
 " buffer management
 nnoremap <leader>n :bnext<cr>
@@ -218,15 +200,19 @@ au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 " YCM disable top window preview
 set completeopt-=preview
 
+" select on enter
+imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
+
 " FZF config
 set rtp+=/usr/local/opt/fzf
 
 nnoremap <leader>, :Files<cr>
 
-" NERDTree config
+" deoplete config
 
-" show NERDTree on the right
-" let g:NERDTreeWinPos = "right"
+let g:deoplete#enable_at_startup = 1
+
+" NERDTree config
 
 " arrow symbols for directories
 let g:NERDTreeDirArrowExpandable = '▸'
