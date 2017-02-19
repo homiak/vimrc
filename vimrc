@@ -6,8 +6,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+" Go to http://vimcolors.com for more color schemes
+" Plugin 'JamshedVesuna/vim-markdown-preview'
+" Plugin 'Marfisc/vorange'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'VundleVim/Vundle.vim'
@@ -17,13 +18,13 @@ Plugin 'fatih/molokai'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'junegunn/fzf.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'morhetz/gruvbox'
+" Plugin 'majutsushi/tagbar'
+" Plugin 'morhetz/gruvbox'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
-Plugin 'solarnz/thrift.vim'
-Plugin 'tpope/vim-dispatch'
+" Plugin 'solarnz/thrift.vim'
+" Plugin 'tpope/vim-dispatch'
 Plugin 'zchee/deoplete-go'
 
 " All of your Plugins must be added before the following line
@@ -55,8 +56,12 @@ set wildmode=list:full
 " assume a fast tty (not needed for neovim)
 " set ttyfast
 
-" show line and column in status bar
+" show line and column in status bar (never look at it)
 " set ruler
+
+" do not insert two spaces after a period
+" when reformatting text with gq
+set nojoinspaces
 
 " backspace over indent and eol
 set backspace=indent,eol,start
@@ -93,11 +98,16 @@ au FocusLost * :wa
 au FileType html setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
+" set textwidth to 72 chars for git commits
+au FileType gitcommit set tw=72
+
 " set color scheme
 set termguicolors
 let g:rehash256 = 1
-let g:molokai_original = 1
+" let g:molokai_original = 1
 colorscheme molokai
+" colorscheme PaperColor
+" set background=light
 
 " enable syntax highlighting
 syntax enable
@@ -171,19 +181,17 @@ let g:go_hightlight_build_constraints = 1
 let g:go_auto_type_info = 1
 set updatetime=100
 
+" run go tests in a terminal
+" let g:go_term_enabled = 1
+
 " go shortcuts
+au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>i <Plug>(go-install)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 au FileType go nmap <leader>r <Plug>(go-rename)
 au FileType go nmap <leader>? <Plug>(go-info)
-au FileType go nmap <leader>gd <Plug>(go-doc)
-au FileType go nmap <leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <leader>ds <Plug>(go-def-split)
-au FileType go nmap <leader>dv <Plug>(go-def-vertical)
-au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+au FileType go nmap <leader>gd <Plug>(go-def)
 
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
@@ -197,7 +205,7 @@ endfunction
 
 au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
-" YCM disable top window preview
+" disable top window preview
 set completeopt-=preview
 
 " select on enter
@@ -206,6 +214,7 @@ imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
 " FZF config
 set rtp+=/usr/local/opt/fzf
 
+" start fuzzy searching with ,,
 nnoremap <leader>, :Files<cr>
 
 " deoplete config

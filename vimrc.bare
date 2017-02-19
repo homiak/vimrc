@@ -1,0 +1,94 @@
+" disable vi compatibility (probably not necessary for neovim)
+" set nocompatible
+
+" configure vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Go to http://vimcolors.com for more color schemes
+Plugin 'VundleVim/Vundle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
+
+" disable modelines (security risk)
+set modelines=0
+
+" default file encoding (not needed for neovim)
+" set encoding=utf-8
+
+" keep cursor in the middle of the screen
+set scrolloff=999
+
+" indent blocks automatically
+set autoindent
+
+" save files before make
+set autowrite
+
+" visual bell instead of dingdong
+set visualbell
+
+" enable auto completion for command options
+set wildmenu
+set wildmode=list:full
+
+" assume a fast tty (not needed for neovim)
+" set ttyfast
+
+" show line and column in status bar
+" set ruler
+
+" do not insert two spaces after a period
+" when reformatting text with gq
+set nojoinspaces
+
+" backspace over indent and eol
+set backspace=indent,eol,start
+
+" enable line numbers
+set number
+
+" enable persistent undo file
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
+
+" make tabs 4 chars wide
+set tabstop=4
+set shiftwidth=4
+
+" use tabs instead of spaces
+set noexpandtab
+
+" enable mouse support
+set mouse=a
+
+" save on focus lost
+au FocusLost * :wa
+
+" indentation settings
+au FileType html setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" enable syntax highlighting
+syntax enable
+
+" make , the leader char
+let mapleader = ","
+
+" ,w : trim whitespace
+nnoremap <leader>w :StripWhitespace<cr>
+
+" ,ev : open vimrc
+nnoremap <leader>ev :e $MYVIMRC<cr>
+
+" ,rv : reload vimrc
+nnoremap <leader>rv :source $MYVIMRC<cr>
+
+" highlight the current line
+set cursorline
+
